@@ -1,0 +1,6 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Publish" type="DotNetFolderPublish" factoryName="Publish to folder">
+    <riderPublish configuration="Release" delete_existing_files="true" platform="Any CPU" produce_single_file="true" runtime="win-x64" target_folder="$USER_HOME$/Desktop/Gw2AddonManagement" target_framework="net6.0-windows" uuid_high="8029026680485923246" uuid_low="-8171349083053505916" />
+    <method v="2" />
+  </configuration>
+</component>
