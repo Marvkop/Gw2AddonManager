@@ -21,13 +21,14 @@ Examples used in my personal config:
 
 ## Setup
 
-1. Download the client from [releases](https://github.com/Marvkop/Gw2AddonManager/releases).
-2. Download the addon-config.json from the [config folder](https://github.com/Marvkop/Gw2AddonManager/tree/main/Gw2AddonManagement/Config).
-3. Create a "gw2-addons"-folder in your documents-folder and move the addon-config.json inside
-4. Start the client from anywhere, it doesnt need to be in any specific location.
+1. Download the latest version of the manager from [releases](https://github.com/Marvkop/Gw2AddonManager/releases).
+2. Start the manager from anywhere, it doesnt need to be in any specific location.
+3. On first startup the program will create a file under "my-documents"/gw2-addons/addon-config.json
 
-(PS: if the client is empty the config is a the wrong place or doesnt exist.)
+You can modify the config file to add your own addons if they fulfill the requirements mentioned under "Currently supported addons".
 
-you can modify the config file to add your own addons if they fulfill the requirements mentioned under "Currently supported addons".
+To reset the config, just delete it (this wont delete already installed addons) or press the "delete all" button in the manager.
 
-Im currently working on a way to automate step 2.and 3.
+The manager wont detect/modify already existing addons and will just overwrite them if you download them through the manager.
+
+### Manually deleting addons, managed by the manager may lead to undefined behaviour! 

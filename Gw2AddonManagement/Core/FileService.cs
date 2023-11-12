@@ -16,14 +16,14 @@ public class FileService
         var configService = Ioc.Default.GetRequiredService<ConfigService>();
         var config = configService.LoadConfig();
 
-        if (config.BasePath is null or "")
+        if (config.BasePath is null or "" || !File.Exists($"{config.BasePath}/Gw2-64.exe"))
         {
             var dialog = new OpenFileDialog
             {
                 Multiselect = false,
                 CheckFileExists = true,
                 CheckPathExists = true,
-                Filter = "Guildwars 2 Anwendung (Gw2-64.exe)|Gw2-64.exe"
+                Filter = "Guildwars 2 Executable (Gw2-64.exe)|Gw2-64.exe"
             };
 
             if (dialog.ShowDialog() is true)

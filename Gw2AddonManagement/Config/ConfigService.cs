@@ -25,7 +25,7 @@ public class ConfigService
         }
         else
         {
-            return new Config(null, new Dictionary<string, Addon>());
+            return ExampleConfig.Instance;
         }
     }
 
