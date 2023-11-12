@@ -7,7 +7,7 @@ Use at your own risk if you want to.
 
 Implemented with WPF in C#.
 
-Currently supported addons:
+## Currently supported addons:
 
 - arc_dps
 - arcdps_unofficial_extras
