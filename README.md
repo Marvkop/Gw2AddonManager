@@ -21,6 +21,8 @@ Examples used in my personal config:
 
 ## Setup
 
+Requires Windows and atleast [.NET 6.0](https://dotnet.microsoft.com/en-us/download/dotnet)
+
 1. Download the latest version of the manager from [releases](https://github.com/Marvkop/Gw2AddonManager/releases).
 2. Start the manager from anywhere, it doesnt need to be in any specific location.
 3. On first startup the program will create a file under "my-documents"/gw2-addons/addon-config.json
@@ -31,4 +33,4 @@ To reset the config, just delete it (this wont delete already installed addons) 
 
 The manager wont detect/modify already existing addons and will just overwrite them if you download them through the manager.
 
-### Manually deleting addons, managed by the manager may lead to undefined behaviour! 
+### Manually deleting addons, managed by the manager may lead to undefined behaviour!
