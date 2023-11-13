@@ -1,3 +1,5 @@
+![main workflow](https://github.com/Marvkop/Gw2AddonManager/actions/workflows/dotnet-desktop.yml/badge.svg)
+
 # Gw2AddonManager
 I am not associated with Guildwars 2 or Arenanet or any of the supported addons.
 
