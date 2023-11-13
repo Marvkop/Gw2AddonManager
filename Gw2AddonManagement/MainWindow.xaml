@@ -28,7 +28,7 @@
         </behaviors:EventTrigger>
     </behaviors:Interaction.Triggers>
 
-    <Grid Margin="5">
+    <Grid Margin="5 0 5 5">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
@@ -53,8 +53,11 @@
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
+
+            <Canvas Grid.Column="0"
+                    Grid.ColumnSpan="3"
+                    Background="Transparent" />
 
             <materialDesign:PackIcon Grid.Column="0"
                                      Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}"
@@ -62,7 +65,7 @@
                                      HorizontalAlignment="Stretch"
                                      VerticalAlignment="Stretch"
                                      Width="25"
-                                     Height="25"/>
+                                     Height="25" />
 
             <TextBlock Grid.Column="1"
                        Margin="5"
@@ -74,7 +77,7 @@
                        Height="20"
                        Style="{DynamicResource MaterialDesignTextBlock}" />
 
-            <Button Grid.Column="3"
+            <Button Grid.Column="2"
                     Style="{DynamicResource MaterialDesignFlatButton}"
                     Command="{Binding CloseCommand}">
                 <materialDesign:PackIcon Kind="Close"
