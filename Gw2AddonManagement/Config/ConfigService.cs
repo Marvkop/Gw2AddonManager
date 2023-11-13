@@ -16,6 +16,11 @@ public class ConfigService
             var config = JsonConvert.DeserializeObject<Config>(reader.ReadToEnd()) ?? throw new System.Exception("could not deserialize config");
             ValidateConfig(config);
 
+            foreach (var (key, addon) in ExampleConfig.Instance.Addons)
+            {
+                config.Addons.TryAdd(key, addon);
+            }
+
             return config;
         }
         else

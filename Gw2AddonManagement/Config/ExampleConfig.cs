@@ -68,6 +68,45 @@ public static class ExampleConfig
                 { "owner", "knoxfighter" },
             }
         ));
+
+        AddAddon(new Addon(
+            "GW2-ArcDPS-Mechanics-Log",
+            "github",
+            null,
+            null,
+            SaveLocation.MainFolder,
+            new Dictionary<string, string>
+            {
+                { "repo", "GW2-ArcDPS-Mechanics-Log" },
+                { "owner", "knoxfighter" },
+            }
+        ));
+
+        AddAddon(new Addon(
+            "arcdps-squad-ready-plugin",
+            "github",
+            null,
+            null,
+            SaveLocation.MainFolder,
+            new Dictionary<string, string>
+            {
+                { "repo", "arcdps-squad-ready-plugin" },
+                { "owner", "cheahjs" },
+            }
+        ));
+
+        AddAddon(new Addon(
+            "arcdps-food-reminder",
+            "github",
+            null,
+            null,
+            SaveLocation.MainFolder,
+            new Dictionary<string, string>
+            {
+                { "repo", "arcdps-food-reminder" },
+                { "owner", "Zerthox" },
+            }
+        ));
     }
 
     private static void AddAddon(Addon addon)
