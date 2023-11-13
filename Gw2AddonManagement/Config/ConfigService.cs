@@ -21,6 +21,14 @@ public class ConfigService
                 config.Addons.TryAdd(key, addon);
             }
 
+            foreach (var (key, addon) in config.Addons)
+            {
+                if (addon.File is not null && !File.Exists(addon.File))
+                {
+                    config.Addons[key] = addon with { File = null, Version = null };
+                }
+            }
+
             return config;
         }
         else
