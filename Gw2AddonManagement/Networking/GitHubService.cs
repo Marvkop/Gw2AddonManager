@@ -2,6 +2,7 @@
 using Gw2AddonManagement.Data;
 using Gw2AddonManagement.Exception;
 using Gw2AddonManagement.Extensions;
+using Gw2AddonManagement.Util;
 
 namespace Gw2AddonManagement.Networking;
 
@@ -18,7 +19,7 @@ public class GitHubService
 
     public async Task<string> Download(string assetUrl, SaveLocation location)
     {
-        var result = await Get(assetUrl);
+        var result = await _client.Get(assetUrl);
         var (downloadUrl, fileName) = result.GetContentAs<GitHubAssetResponse[]>()[0];
 
         return await Download(downloadUrl, location, fileName);
@@ -26,7 +27,7 @@ public class GitHubService
 
     private async Task<string> Download(string downloadUrl, SaveLocation location, string name)
     {
-        var result = await Get(downloadUrl);
+        var result = await _client.Get(downloadUrl);
         await using var stream = await result.Content.ReadAsStreamAsync();
 
         return _fileService.SaveToFile(stream, location, name);
@@ -34,20 +35,7 @@ public class GitHubService
 
     public async Task<GitHubLatestReleaseResponse> GetLatestRelease(string owner, string repo)
     {
-        var response = await Get($"{GetBaseUri(owner, repo)}/releases/latest");
+        var response = await _client.Get($"{GitHubHelper.GetBaseUri(owner, repo)}/releases/latest");
         return response.GetContentAs<GitHubLatestReleaseResponse>();
-    }
-
-    private string GetBaseUri(string owner, string repo) => $"https://api.github.com/repos/{owner}/{repo}";
-
-    private async Task<HttpResponseMessage> Get(string url)
-    {
-        var message = await _client.GetAsync(url);
-
-        return message.StatusCode switch
-        {
-            HttpStatusCode.OK => message,
-            _ => throw new GitHubRequestFailedException(message)
-        };
     }
 }

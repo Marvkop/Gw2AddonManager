@@ -55,7 +55,7 @@ public class GitHubUpdater : IAddonUpdater
         {
             try
             {
-                (_assetUrl, _nextVersion) = await _gitHubService.GetLatestRelease(_repoOwner, _repoName);
+                (_assetUrl, _nextVersion, _) = await _gitHubService.GetLatestRelease(_repoOwner, _repoName);
             }
             catch (System.Exception e)
             {

@@ -7,14 +7,15 @@
         <UseWPF>true</UseWPF>
         <ApplicationIcon>Images/icon.ico</ApplicationIcon>
         <PublishSingleFile>true</PublishSingleFile>
+        <SourceRevisionId>$([System.DateTime]::UtcNow.ToString("yyyy-MM-ddTHH:mm:ssZ"))</SourceRevisionId>
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
-      <PackageReference Include="MaterialDesignThemes" Version="4.9.0" />
-      <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.39" />
-      <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-      <PackageReference Include="Nito.AsyncEx.Coordination" Version="5.1.2" />
+        <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1"/>
+        <PackageReference Include="MaterialDesignThemes" Version="4.9.0"/>
+        <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.39"/>
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3"/>
+        <PackageReference Include="Nito.AsyncEx.Coordination" Version="5.1.2"/>
     </ItemGroup>
 
 </Project>
