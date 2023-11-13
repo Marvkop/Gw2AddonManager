@@ -10,17 +10,11 @@ Use at your own risk if you want to.
 
 Implemented with WPF in C#.
 
+![screenshot.png](screenshot.png)
+
 ## Currently supported addons:
 
-Supports all addons that release on github as .dll
-
-Examples used in my personal config:
-
-- arc_dps
-- arcdps_unofficial_extras
-- arcdps_healing_stats
-- arcdps-killproof.me-plugin
-- GW2-ArcDPS-Boon-Table
+Supports all addons that release on github as .dll and arc-dps.
 
 ## Setup
 
