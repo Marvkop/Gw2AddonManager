@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using CommunityToolkit.Mvvm.DependencyInjection;
+﻿using System.Text.RegularExpressions;
 using Gw2AddonManagement.Core;
 using Gw2AddonManagement.Extensions;
 
@@ -19,6 +13,7 @@ public class ArcDpsService
     public ArcDpsService()
     {
         Ioc.Default.InitService(out _fileService);
+
         _client.BaseAddress = new Uri("https://www.deltaconnected.com/arcdps/x64/");
     }
 

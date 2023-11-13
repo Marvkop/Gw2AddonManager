@@ -1,8 +1,4 @@
-﻿using System.Net;
-using System.Net.Http;
-using System.Threading.Tasks;
-using CommunityToolkit.Mvvm.DependencyInjection;
-using Gw2AddonManagement.Core;
+﻿using Gw2AddonManagement.Core;
 using Gw2AddonManagement.Data;
 using Gw2AddonManagement.Exception;
 using Gw2AddonManagement.Extensions;

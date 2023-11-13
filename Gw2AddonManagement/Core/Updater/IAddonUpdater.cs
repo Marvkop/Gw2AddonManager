@@ -1,6 +1,4 @@
-﻿using System.Threading.Tasks;
-
-namespace Gw2AddonManagement.Core.Updater;
+﻿namespace Gw2AddonManagement.Core.Updater;
 
 public interface IAddonUpdater
 {

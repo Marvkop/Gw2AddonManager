@@ -1,8 +1,4 @@
-﻿using System;
-using System.Globalization;
-using System.Windows.Data;
-
-namespace Gw2AddonManagement.Converter;
+﻿namespace Gw2AddonManagement.Converter;
 
 public class IsNotNullOrEmptyConverter : IValueConverter
 {

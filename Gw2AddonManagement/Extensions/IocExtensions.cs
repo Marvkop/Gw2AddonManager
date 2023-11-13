@@ -1,7 +1,4 @@
-﻿using System.ComponentModel.Design;
-using CommunityToolkit.Mvvm.DependencyInjection;
-
-namespace Gw2AddonManagement.Extensions;
+﻿namespace Gw2AddonManagement.Extensions;
 
 public static class IocExtensions
 {

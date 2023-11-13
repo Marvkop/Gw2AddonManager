@@ -1,10 +1,10 @@
 ﻿using System.ComponentModel.Design;
-using System.Windows;
 using CommunityToolkit.Mvvm.DependencyInjection;
 using Gw2AddonManagement.Config;
 using Gw2AddonManagement.Core;
 using Gw2AddonManagement.Extensions;
 using Gw2AddonManagement.Networking;
+using Gw2AddonManagement.ViewModels;
 
 namespace Gw2AddonManagement;
 
@@ -22,7 +22,7 @@ public partial class App
 
         var mainWindow = new MainWindow
         {
-            DataContext = new ViewModels.MainWindowViewModel()
+            DataContext = new MainWindowViewModel()
         };
 
         mainWindow.Show();

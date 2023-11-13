@@ -1,10 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
-using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.DependencyInjection;
-using CommunityToolkit.Mvvm.Input;
-using CommunityToolkit.Mvvm.Messaging;
-using Gw2AddonManagement.Core;
+﻿using Gw2AddonManagement.Core;
 using Gw2AddonManagement.Core.Updater;
 using Gw2AddonManagement.Extensions;
 using Gw2AddonManagement.Messages;

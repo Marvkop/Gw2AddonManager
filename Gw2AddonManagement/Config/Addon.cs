@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using Gw2AddonManagement.Core;
-using Newtonsoft.Json;
+﻿using Gw2AddonManagement.Core;
 
 namespace Gw2AddonManagement.Config;
 

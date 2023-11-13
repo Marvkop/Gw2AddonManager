@@ -1,6 +1,4 @@
-﻿using Newtonsoft.Json;
-
-namespace Gw2AddonManagement.Data;
+﻿namespace Gw2AddonManagement.Data;
 
 public record GitHubAssetResponse(
     [JsonProperty("browser_download_url")] string DownloadUrl,

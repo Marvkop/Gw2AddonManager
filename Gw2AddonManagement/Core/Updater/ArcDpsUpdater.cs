@@ -1,7 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
-using CommunityToolkit.Mvvm.DependencyInjection;
-using Gw2AddonManagement.Extensions;
+﻿using Gw2AddonManagement.Extensions;
 using Gw2AddonManagement.Networking;
 
 namespace Gw2AddonManagement.Core.Updater;

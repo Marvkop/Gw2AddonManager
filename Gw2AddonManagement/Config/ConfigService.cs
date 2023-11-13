@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using Newtonsoft.Json;
-
-namespace Gw2AddonManagement.Config;
+﻿namespace Gw2AddonManagement.Config;
 
 public class ConfigService
 {

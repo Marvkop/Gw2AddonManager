@@ -1,7 +1,4 @@
-﻿using System.IO;
-using System.Net.Http;
-
-namespace Gw2AddonManagement.Exception;
+﻿namespace Gw2AddonManagement.Exception;
 
 public class GitHubRequestFailedException : System.Exception
 {

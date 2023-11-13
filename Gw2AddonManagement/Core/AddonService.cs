@@ -1,6 +1,4 @@
-﻿using System.Threading.Tasks;
-using CommunityToolkit.Mvvm.DependencyInjection;
-using Gw2AddonManagement.Config;
+﻿using Gw2AddonManagement.Config;
 using Gw2AddonManagement.Core.Updater;
 using Gw2AddonManagement.Extensions;
 

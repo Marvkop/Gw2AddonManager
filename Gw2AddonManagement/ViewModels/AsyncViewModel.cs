@@ -1,8 +1,4 @@
-﻿using System;
-using System.Threading;
-using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Messaging;
-using Gw2AddonManagement.Messages;
+﻿using Gw2AddonManagement.Messages;
 
 namespace Gw2AddonManagement.ViewModels;
 

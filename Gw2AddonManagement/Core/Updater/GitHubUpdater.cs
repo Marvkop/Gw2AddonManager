@@ -1,8 +1,4 @@
-﻿using System;
-using System.Diagnostics;
-using System.Threading.Tasks;
-using CommunityToolkit.Mvvm.DependencyInjection;
-using Gw2AddonManagement.Extensions;
+﻿using Gw2AddonManagement.Extensions;
 using Gw2AddonManagement.Networking;
 
 namespace Gw2AddonManagement.Core.Updater;
@@ -66,8 +62,6 @@ public class GitHubUpdater : IAddonUpdater
                 Console.WriteLine(e);
             }
         }
-
-        Debug.WriteLine($"set asset url to: {_assetUrl}");
 
         return _nextVersion != _currentVersion;
     }

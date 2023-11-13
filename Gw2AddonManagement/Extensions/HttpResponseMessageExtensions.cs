@@ -1,8 +1,4 @@
-﻿using System.IO;
-using System.Net.Http;
-using Newtonsoft.Json;
-
-namespace Gw2AddonManagement.Extensions;
+﻿namespace Gw2AddonManagement.Extensions;
 
 public static class HttpResponseMessageExtensions
 {

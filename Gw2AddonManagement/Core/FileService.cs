@@ -1,8 +1,4 @@
-﻿using System;
-using System.IO;
-using System.Windows;
-using CommunityToolkit.Mvvm.DependencyInjection;
-using Gw2AddonManagement.Config;
+﻿using Gw2AddonManagement.Config;
 using Microsoft.Win32;
 
 namespace Gw2AddonManagement.Core;

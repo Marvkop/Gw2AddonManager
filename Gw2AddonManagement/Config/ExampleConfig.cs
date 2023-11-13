@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Gw2AddonManagement.Core;
+﻿using Gw2AddonManagement.Core;
 
 namespace Gw2AddonManagement.Config;
 
