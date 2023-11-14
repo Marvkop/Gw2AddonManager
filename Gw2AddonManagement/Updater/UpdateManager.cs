@@ -1,5 +1,6 @@
 ﻿using System.Reflection;
 using Gw2AddonManagement.Data;
+using Gw2AddonManagement.Extensions;
 using Gw2AddonManagement.Util;
 
 namespace Gw2AddonManagement.Updater;
@@ -15,8 +16,13 @@ public static class UpdateManager
 
         var url = $"{GitHubHelper.GetBaseUri("Marvkop", "Gw2AddonManager")}/releases/latest";
 
-        var awaiter = client.GetStringAsync(url).GetAwaiter();
-        var response = JsonConvert.DeserializeObject<GitHubLatestReleaseResponse>(awaiter.GetResult());
+        var awaiter = client.GetAsync(url).GetAwaiter();
+        var message = awaiter.GetResult();
+
+        if (message.StatusCode is not HttpStatusCode.OK)
+            return;
+
+        var response = message.GetContentAs<GitHubLatestReleaseResponse>();
         var assembly = Assembly.GetExecutingAssembly();
         var attribute = assembly.GetCustomAttribute<AssemblyInformationalVersionAttribute>();
         var version = attribute.InformationalVersion.Split('+')[1];

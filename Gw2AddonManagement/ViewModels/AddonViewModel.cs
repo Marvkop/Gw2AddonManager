@@ -19,6 +19,9 @@ public partial class AddonViewModel : AsyncViewModel
     [ObservableProperty]
     private bool _needsUpdate;
 
+    [ObservableProperty]
+    private string? _error;
+
     public AddonViewModel(IAddonUpdater updater)
     {
         Ioc.Default.InitService(out _addonService);
@@ -35,8 +38,16 @@ public partial class AddonViewModel : AsyncViewModel
     {
         using (StartLoading())
         {
-            NeedsUpdate = await _updater.NeedsUpdate();
-            LatestVersion = _updater.GetNextVersion();
+            try
+            {
+                NeedsUpdate = await _updater.NeedsUpdate();
+                LatestVersion = _updater.GetNextVersion();
+            }
+            catch (System.Exception e)
+            {
+                Error = e.Message;
+                NeedsUpdate = false;
+            }
         }
     }
 
@@ -49,7 +60,15 @@ public partial class AddonViewModel : AsyncViewModel
             {
                 NeedsUpdate = false;
 
-                await _addonService.UpdateAddon(_updater);
+                try
+                {
+                    await _addonService.UpdateAddon(_updater);
+                }
+                catch (System.Exception e)
+                {
+                    Error = e.Message;
+                    NeedsUpdate = true;
+                }
 
                 CurrentVersion = _updater.GetCurrentVersion();
             }

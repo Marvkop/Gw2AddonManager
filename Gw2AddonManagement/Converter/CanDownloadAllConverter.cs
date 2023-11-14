@@ -8,7 +8,7 @@ public class CanDownloadAllConverter : IValueConverter
     {
         if (value is ObservableCollection<AddonViewModel> collection)
         {
-            return collection.Any(model => model.NeedsUpdate);
+            return collection.Any(model => model is { NeedsUpdate: true, Error: null });
         }
 
         return false;

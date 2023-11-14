@@ -5,9 +5,14 @@
                     xmlns:converter="clr-namespace:Gw2AddonManagement.Converter"
                     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
     <converter:IsNotNullOrEmptyConverter x:Key="IsNotNullConverter" />
+    <converter:IsNullConverter x:Key="IsNullConverter" />
+    <converter:AndConverter x:Key="AndConverter" />
     <converter:InvertBoolConverter x:Key="InvertBoolConverter" />
     <converter:CanDeleteAllConverter x:Key="CanDeleteAllConverter" />
     <converter:CanDownloadAllConverter x:Key="CanDownloadAllConverter" />
+    <converter:IsNullToStyleConverter x:Key="ButtonStyleConverter"
+                                       StyleOnNull="{DynamicResource MaterialDesignRaisedButton}"
+                                       StyleOnNonNull="{DynamicResource MaterialDesignRaisedAccentButton}" />
 
     <Style x:Key="DataGridContentCellCentering" TargetType="{x:Type DataGridCell}">
         <Setter Property="Template">
@@ -19,7 +24,7 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-        <Setter Property="Foreground" Value="{DynamicResource MaterialDesign.Brush.Foreground}" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueDarkForegroundBrush}" />
         <Style.Triggers>
             <Trigger Property="IsSelected" Value="True">
                 <Setter Property="Background" Value="{x:Null}" />
@@ -36,10 +41,18 @@
             </Grid.ColumnDefinitions>
 
             <Button Grid.Column="0"
-                    Style="{DynamicResource MaterialDesignRaisedButton}"
+                    ToolTipService.ShowOnDisabled="True"
+                    ToolTipService.InitialShowDelay="0"
+                    Style="{Binding Error, Converter={StaticResource ButtonStyleConverter}}"
                     Margin="2"
                     Command="{Binding UpdateCommand}"
-                    IsEnabled="{Binding NeedsUpdate}">
+                    ToolTip="{Binding Error}">
+                <Button.IsEnabled>
+                    <MultiBinding Converter="{StaticResource AndConverter}">
+                        <Binding Path="NeedsUpdate" />
+                        <Binding Path="Error" Converter="{StaticResource IsNullConverter}" />
+                    </MultiBinding>
+                </Button.IsEnabled>
                 <behaviors:Interaction.Triggers>
                     <behaviors:EventTrigger EventName="Loaded">
                         <behaviors:InvokeCommandAction Command="{Binding RefreshNeedsUpdateCommand}" />

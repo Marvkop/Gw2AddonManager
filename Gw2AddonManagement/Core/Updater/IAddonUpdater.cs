@@ -2,8 +2,6 @@
 
 public interface IAddonUpdater
 {
-    public SaveLocation GetSaveLocation();
-
     public string GetAddonName();
 
     public string GetCurrentVersion();

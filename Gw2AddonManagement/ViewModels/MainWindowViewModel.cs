@@ -95,7 +95,7 @@ public partial class MainWindowViewModel : ObservableObject,
     {
         foreach (var addon in Addons)
         {
-            if (addon.NeedsUpdate)
+            if (addon is { NeedsUpdate: true, Error: null or "" })
             {
                 addon.UpdateCommand.Execute(null);
             }
