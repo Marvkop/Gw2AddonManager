@@ -14,20 +14,13 @@ public class ConfigService
             using var reader = new StreamReader(fileStream);
 
             var config = JsonConvert.DeserializeObject<Config>(reader.ReadToEnd()) ?? throw new System.Exception("could not deserialize config");
-            ValidateConfig(config);
 
             foreach (var (key, addon) in ExampleConfig.Instance.Addons)
             {
                 config.Addons.TryAdd(key, addon);
             }
 
-            foreach (var (key, addon) in config.Addons)
-            {
-                if (addon.File is not null && !File.Exists(addon.File))
-                {
-                    config.Addons[key] = addon with { File = null, Version = null };
-                }
-            }
+            ValidateConfig(config);
 
             return config;
         }
@@ -62,6 +55,34 @@ public class ConfigService
 
     private void ValidateConfig(Config config)
     {
+        foreach (var (key, addon) in config.Addons)
+        {
+            if (addon.File is not null)
+            {
+                if (File.Exists(addon.File))
+                {
+                    config.Addons[key] = addon with { File = null, Files = new[] { addon.File } };
+                }
+                else
+                {
+                    config.Addons[key] = addon with { File = null, Files = null, Version = null };
+                }
+            }
+            else if (addon.Files is not null)
+            {
+                var existingFiles = addon.Files.Where(File.Exists).ToArray();
+
+                if (existingFiles.Length > 0)
+                {
+                    config.Addons[key] = addon with { Files = existingFiles };
+                }
+                else
+                {
+                    config.Addons[key] = addon with { Files = null, Version = null };
+                }
+            }
+        }
+
         foreach (var (name, addon) in config.Addons)
         {
             if (!Equals(addon.Name, name))

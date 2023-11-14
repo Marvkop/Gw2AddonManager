@@ -29,8 +29,6 @@ public class GitHubUpdater : IAddonUpdater
         _repoName = repoName;
     }
 
-    public SaveLocation GetSaveLocation() => _saveLocation;
-
     public string GetAddonName() => _addonName;
 
     public string GetCurrentVersion() => _currentVersion ?? "";
@@ -39,14 +37,14 @@ public class GitHubUpdater : IAddonUpdater
 
     public void NotifyDelete() => _currentVersion = null;
 
-    public async Task<string> Download()
+    public async Task<string[]> Download()
     {
         if (_assetUrl == null) throw new ArgumentNullException(nameof(_assetUrl));
         if (_nextVersion == null) throw new ArgumentNullException(nameof(_nextVersion));
 
         _currentVersion = _nextVersion ?? throw new ArgumentNullException(nameof(_nextVersion));
 
-        return await _gitHubService.Download(_assetUrl, GetSaveLocation());
+        return await _gitHubService.Download(_assetUrl, _saveLocation);
     }
 
     public async Task<bool> NeedsUpdate()

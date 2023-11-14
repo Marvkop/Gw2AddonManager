@@ -10,7 +10,7 @@ public interface IAddonUpdater
 
     public void NotifyDelete();
 
-    public Task<string> Download();
+    public Task<string[]> Download();
 
     public Task<bool> NeedsUpdate();
 }

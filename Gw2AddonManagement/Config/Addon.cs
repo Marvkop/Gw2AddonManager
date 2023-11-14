@@ -5,7 +5,10 @@ namespace Gw2AddonManagement.Config;
 public record Addon(
     [JsonProperty("name")] string Name,
     [JsonProperty("type")] string Type,
-    [JsonProperty("file")] string? File,
+    [property: Obsolete]
+    [JsonProperty("file")]
+    string? File,
+    [JsonProperty("files")] string[]? Files,
     [JsonProperty("version")] string? Version,
     [JsonProperty("location")] SaveLocation Location,
     [JsonProperty("metadata")] Dictionary<string, string> Metadata

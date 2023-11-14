@@ -13,6 +13,7 @@ public static class ExampleConfig
             "arcdps",
             null,
             null,
+            null,
             SaveLocation.MainFolder,
             new Dictionary<string, string>()
         ));
@@ -20,6 +21,7 @@ public static class ExampleConfig
         AddAddon(new Addon(
             "arcdps_unofficial_extras_releases",
             "github",
+            null,
             null,
             null,
             SaveLocation.MainFolder,
@@ -35,6 +37,7 @@ public static class ExampleConfig
             "github",
             null,
             null,
+            null,
             SaveLocation.MainFolder,
             new Dictionary<string, string>
             {
@@ -46,6 +49,7 @@ public static class ExampleConfig
         AddAddon(new Addon(
             "GW2-ArcDPS-Boon-Table",
             "github",
+            null,
             null,
             null,
             SaveLocation.MainFolder,
@@ -61,6 +65,7 @@ public static class ExampleConfig
             "github",
             null,
             null,
+            null,
             SaveLocation.MainFolder,
             new Dictionary<string, string>
             {
@@ -72,6 +77,7 @@ public static class ExampleConfig
         AddAddon(new Addon(
             "GW2-ArcDPS-Mechanics-Log",
             "github",
+            null,
             null,
             null,
             SaveLocation.MainFolder,
@@ -87,6 +93,7 @@ public static class ExampleConfig
             "github",
             null,
             null,
+            null,
             SaveLocation.MainFolder,
             new Dictionary<string, string>
             {
@@ -98,6 +105,7 @@ public static class ExampleConfig
         AddAddon(new Addon(
             "arcdps-food-reminder",
             "github",
+            null,
             null,
             null,
             SaveLocation.MainFolder,

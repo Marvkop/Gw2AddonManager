@@ -16,8 +16,6 @@ public class ArcDpsUpdater : IAddonUpdater
         _currentVersion = currentVersion;
     }
 
-    public SaveLocation GetSaveLocation() => SaveLocation.MainFolder;
-
     public string GetAddonName() => "arc_dps";
 
     public string GetCurrentVersion() => _currentVersion?.ToString() ?? string.Empty;
@@ -26,11 +24,11 @@ public class ArcDpsUpdater : IAddonUpdater
 
     public void NotifyDelete() => _currentVersion = null;
 
-    public async Task<string> Download()
+    public async Task<string[]> Download()
     {
         _currentVersion = _nextVersion;
 
-        return await _arcDpsService.Download();
+        return new[] { await _arcDpsService.Download() };
     }
 
     public async Task<bool> NeedsUpdate()

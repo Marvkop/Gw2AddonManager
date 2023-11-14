@@ -25,9 +25,15 @@ public class AddonService
 
             var addonConfig = config.Addons[updater.GetAddonName()];
 
-            _fileService.DeleteFile(addonConfig.File);
+            if (addonConfig.Files is not null)
+            {
+                foreach (var file in addonConfig.Files)
+                {
+                    _fileService.DeleteFile(file);
+                }
 
-            config.Addons[updater.GetAddonName()] = addonConfig with { Version = null, File = null };
+                config.Addons[updater.GetAddonName()] = addonConfig with { Version = null, Files = null };
+            }
 
             _configService.SaveConfig(config);
         }
@@ -37,12 +43,12 @@ public class AddonService
     {
         using (await _semaphore.WaitAsyncDisposable())
         {
-            var file = await updater.Download();
+            var files = await updater.Download();
 
             var config = _configService.LoadConfig();
             var addonConfig = config.Addons[updater.GetAddonName()];
 
-            config.Addons[updater.GetAddonName()] = addonConfig with { Version = updater.GetCurrentVersion(), File = file };
+            config.Addons[updater.GetAddonName()] = addonConfig with { Version = updater.GetCurrentVersion(), Files = files };
 
             _configService.SaveConfig(config);
         }
