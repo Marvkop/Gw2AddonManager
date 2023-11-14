@@ -9,6 +9,8 @@ public class AddonService
     private readonly FileService _fileService;
     private readonly ConfigService _configService;
 
+    private readonly SemaphoreSlim _semaphore = new(1, 1);
+
     public AddonService()
     {
         Ioc.Default.InitService(out _fileService);
@@ -17,26 +19,32 @@ public class AddonService
 
     public void RemoveAddon(IAddonUpdater updater)
     {
-        var config = _configService.LoadConfig();
+        using (_semaphore.WaitDisposable())
+        {
+            var config = _configService.LoadConfig();
 
-        var addonConfig = config.Addons[updater.GetAddonName()];
+            var addonConfig = config.Addons[updater.GetAddonName()];
 
-        _fileService.DeleteFile(addonConfig.File);
+            _fileService.DeleteFile(addonConfig.File);
 
-        config.Addons[updater.GetAddonName()] = addonConfig with { Version = null, File = null };
+            config.Addons[updater.GetAddonName()] = addonConfig with { Version = null, File = null };
 
-        _configService.SaveConfig(config);
+            _configService.SaveConfig(config);
+        }
     }
 
     public async Task UpdateAddon(IAddonUpdater updater)
     {
-        var file = await updater.Download();
+        using (await _semaphore.WaitAsyncDisposable())
+        {
+            var file = await updater.Download();
 
-        var config = _configService.LoadConfig();
-        var addonConfig = config.Addons[updater.GetAddonName()];
+            var config = _configService.LoadConfig();
+            var addonConfig = config.Addons[updater.GetAddonName()];
 
-        config.Addons[updater.GetAddonName()] = addonConfig with { Version = updater.GetCurrentVersion(), File = file };
+            config.Addons[updater.GetAddonName()] = addonConfig with { Version = updater.GetCurrentVersion(), File = file };
 
-        _configService.SaveConfig(config);
+            _configService.SaveConfig(config);
+        }
     }
 }
