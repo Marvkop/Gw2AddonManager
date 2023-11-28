@@ -40,6 +40,8 @@ public class FileService
 
     public string SaveToFile(Stream stream, SaveLocation location, string fileName)
     {
+        EnsureFileNotPresent(fileName);
+
         var path = GetFullPath(location);
         Directory.CreateDirectory(path);
         using var fileStream = File.Create($"{path}/{fileName}");
@@ -62,6 +64,14 @@ public class FileService
         if (file is not null && File.Exists(file))
         {
             File.Delete(file);
+        }
+    }
+
+    private void EnsureFileNotPresent(string fileName)
+    {
+        foreach (var location in Enum.GetValues<SaveLocation>())
+        {
+            DeleteFile($"{GetFullPath(location)}/{fileName}");
         }
     }
 }
