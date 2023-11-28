@@ -81,8 +81,12 @@ public partial class MainWindowViewModel : ObservableObject,
 
         foreach (var (key, addon) in config.Addons)
         {
-            _fileService.DeleteFile(addon.File);
-            config.Addons[key] = addon with { File = null, Version = null };
+            foreach (var file in addon.Files ?? Array.Empty<string>())
+            {
+                _fileService.DeleteFile(file);
+            }
+
+            config.Addons[key] = addon with { Files = null, Version = null };
         }
 
         _configService.SaveConfig(config);
