@@ -68,10 +68,19 @@ public partial class MainWindowViewModel : ObservableObject,
     }
 
     [RelayCommand]
+    private void RepairGw2()
+    {
+        Process.Start($"{_fileService.BasePath}/Gw2-64.exe", "-repair");
+        Application.Current.Shutdown();
+        Environment.Exit(0);
+    }
+
+    [RelayCommand]
     private void StartGw2()
     {
         Process.Start($"{_fileService.BasePath}/Gw2-64.exe");
         Application.Current.Shutdown();
+        Environment.Exit(0);
     }
 
     [RelayCommand]
