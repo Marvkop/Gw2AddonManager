@@ -12,7 +12,7 @@
     <converter:CanDownloadAllConverter x:Key="CanDownloadAllConverter" />
     <converter:IsNullToStyleConverter x:Key="ButtonStyleConverter"
                                        StyleOnNull="{DynamicResource MaterialDesignRaisedButton}"
-                                       StyleOnNonNull="{DynamicResource MaterialDesignRaisedAccentButton}" />
+                                       StyleOnNonNull="{DynamicResource MaterialDesignRaisedSecondaryButton}" />
 
     <Style x:Key="DataGridContentCellCentering" TargetType="{x:Type DataGridCell}">
         <Setter Property="Template">
@@ -24,7 +24,6 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueDarkForegroundBrush}" />
         <Style.Triggers>
             <Trigger Property="IsSelected" Value="True">
                 <Setter Property="Background" Value="{x:Null}" />

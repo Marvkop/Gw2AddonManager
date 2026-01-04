@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <OutputType>WinExe</OutputType>
-        <TargetFramework>net6.0-windows</TargetFramework>
+        <TargetFramework>net10.0-windows</TargetFramework>
         <Nullable>enable</Nullable>
         <UseWPF>true</UseWPF>
         <ApplicationIcon>Images/icon.ico</ApplicationIcon>
@@ -11,10 +11,10 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1"/>
-        <PackageReference Include="MaterialDesignThemes" Version="4.9.0"/>
-        <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.39"/>
-        <PackageReference Include="Newtonsoft.Json" Version="13.0.3"/>
+        <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
+        <PackageReference Include="MaterialDesignThemes" Version="5.3.0" />
+        <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.135" />
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
         <PackageReference Include="Nito.AsyncEx.Coordination" Version="5.1.2"/>
     </ItemGroup>
 

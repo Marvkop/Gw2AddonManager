@@ -13,11 +13,10 @@
         Width="800"
         MinHeight="200"
         MinWidth="450"
-        Background="{DynamicResource MaterialDesignPaper}"
-        FontFamily="{DynamicResource MaterialDesignFont}"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
-        ResizeMode="NoResize">
+        ResizeMode="NoResize"
+        Style="{StaticResource MaterialDesignWindow}">
     <Window.DataContext>
         <viewModels:MainWindowViewModel />
     </Window.DataContext>
@@ -60,7 +59,6 @@
                     Background="Transparent" />
 
             <materialDesign:PackIcon Grid.Column="0"
-                                     Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}"
                                      Kind="Octahedron"
                                      HorizontalAlignment="Stretch"
                                      VerticalAlignment="Stretch"
@@ -72,7 +70,6 @@
                        Text="GW2 Addon Manager"
                        HorizontalAlignment="Stretch"
                        TextAlignment="Center"
-                       Foreground="{DynamicResource PrimaryHueMidForegroundBrush}"
                        FontWeight="Bold"
                        Height="20"
                        Style="{DynamicResource MaterialDesignTextBlock}" />
@@ -81,7 +78,7 @@
                     Style="{DynamicResource MaterialDesignFlatButton}"
                     Command="{Binding CloseCommand}">
                 <materialDesign:PackIcon Kind="Close"
-                                         Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" />
+                                         Foreground="{DynamicResource MaterialDesign.Brush.Primary.Dark.Foreground}" />
             </Button>
         </Grid>
 
