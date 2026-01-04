@@ -73,6 +73,7 @@
                        HorizontalAlignment="Stretch"
                        TextAlignment="Center"
                        Foreground="{DynamicResource PrimaryHueMidForegroundBrush}"
+                       Background="{DynamicResource Brush}"
                        FontWeight="Bold"
                        Height="20"
                        Style="{DynamicResource MaterialDesignTextBlock}" />

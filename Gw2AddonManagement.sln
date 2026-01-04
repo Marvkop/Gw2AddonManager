@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Config", "Config", "{F9AAB4
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gw2AddonManagement.Updater", "Gw2AddonManagement.Updater\Gw2AddonManagement.Updater.csproj", "{F20B05AB-1D96-4996-B625-BEB8BC7D9F15}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,5 +29,9 @@ Global
 		{B0AAC141-4B68-4786-9108-158B73789596}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B0AAC141-4B68-4786-9108-158B73789596}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B0AAC141-4B68-4786-9108-158B73789596}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F20B05AB-1D96-4996-B625-BEB8BC7D9F15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F20B05AB-1D96-4996-B625-BEB8BC7D9F15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F20B05AB-1D96-4996-B625-BEB8BC7D9F15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F20B05AB-1D96-4996-B625-BEB8BC7D9F15}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
